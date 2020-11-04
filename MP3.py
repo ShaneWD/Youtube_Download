@@ -1,21 +1,26 @@
 from __future__ import unicode_literals
 import youtube_dl
+import os
 link = input("""
 Insert link
 >""")
 # (test link) link = "https://www.youtube.com/watch?v=JQbjS0_ZfJ0"
+try:
+    os.system(f'cmd /k youtube-dl --audio-format mp3 --audio-quality 6 -x {link}')
+except:
+    print("invalid link")
 
-ydl_opts = {
-    'format': 'bestaudio/best',
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': 'mp3',
-        'preferredquality': '320',
-    }],
-}
+#ydl_opts = {
+    #'format': 'bestaudio/best',
+    #'postprocessors': [{
+        #'key': 'FFmpegExtractAudio',
+        #'preferredcodec': 'mp3',
+        #'preferredquality': '320',
+    #}],
+#}
 
-with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([link])
+#with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    #ydl.download([link])
 
 # credit: https://github.com/silvanohirtie/youtube-mp3-downloader
 

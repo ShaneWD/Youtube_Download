@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 from MP3 import c_mp3
 from MP4 import c_mp4
 

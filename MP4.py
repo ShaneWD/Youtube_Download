@@ -24,7 +24,7 @@ Type "convert" to convert a file to MP4 format
 >""")
     if url.lower() != "convert":
         try:
-            os.system(f'cmd /k youtube-dl {url}')
+            os.system(f'youtube-dl {url}')
             video_format = input("""
 The file was downloaded as a WEBM file. 
 Would you like to have it be a MP4 file?

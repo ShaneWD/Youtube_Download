@@ -51,5 +51,4 @@ Suggesting changes are fine, however, be descriptive.
 ## My Youtube
 [Shane Dsi](https://www.youtube.com/channel/UCfRjte3cG1e9YI_cce_0oPQ)
 
-## License 
-Private Use
+

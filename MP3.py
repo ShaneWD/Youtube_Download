@@ -7,7 +7,7 @@ def c_mp3():
 Insert link
 >""")
     try:
-        os.system(f'youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 {link}')
+        os.system(f'yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 {link}')
     except:
         print("invalid link")
 

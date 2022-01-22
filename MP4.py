@@ -7,18 +7,18 @@ def c_mp4():
         original_name = input("""What is the file name called? Make sure to include file type.
 (ex: concert.WEBM)
 
->""").replace(" ", "-")
+>""").replace(" ", "?")
         new_name = input("""
 What would you like to call the new file?
 (Type "!stay" if you don't want to change the name)
 Make sure to include file type.
 (ex: concert.MP4)
 
->""").replace(" ", "-")
+>""").replace(" ", "?")
         if new_name.lower() == "!stay":
             new_name = original_name
 
-        os.system(f"""ffmpeg -i "{original_name.replace("-", " ")}" -vcodec copy "{new_name.replace("-", " ")}" """)
+        os.system(f"""ffmpeg -i "{original_name.replace("?", " ")}" -vcodec copy "{new_name.replace("?", " ")}" """)
 
     url = input("""
 Insert the URL

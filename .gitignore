@@ -1,4 +1,6 @@
 *.pyc
+*.mp4
+*.webm
 /__pycache__
 /lib
 /scripts

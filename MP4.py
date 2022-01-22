@@ -4,18 +4,16 @@ import os
 
 def c_mp4():
     def convert():
-        original_name = input("""
-Mandatory: If the name of the file contains any spaces, rename it to something else that does not contain spaces
-What is the file name called?
->""")
+        original_name = input("""What is the file name called?
+>""").replace(" ", "-")
         new_name = input("""
 What would you like to call the new file?
-Remember, the new name CANNOT contain any spaces
 (Type "!stay" if you don't want to change the name)
->""")
+
+>""").replace(" ", "-")
         if new_name.lower() == "!stay":
             new_name = original_name
-        os.system(f'ffmpeg -i {original_name} -vcodec copy {new_name}')
+        os.system(f"""ffmpeg -i "{original_name.replace("-", " ")}" -vcodec copy "{new_name.replace("-", " ")}" """)
 
     url = input("""
 Insert the URL
@@ -29,11 +27,14 @@ Type "convert" to convert a file to MP4 format
 The file was downloaded as a WEBM file. 
 Would you like to have it be a MP4 file?
 Yes or No?""").lower()
-            if video_format == "yes":
+            if video_format.lower() == "yes":
                 convert()
-            if video_format == "no":
+            elif video_format.lower() == "no":
                 pass
+            else:
+                print("invalid response")
         except:
-            print("invalid link")
+            print("Invalid link. Please try again.")
+            
     elif url.lower() == "convert":
         convert()

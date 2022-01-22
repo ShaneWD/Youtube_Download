@@ -4,15 +4,20 @@ import os
 
 def c_mp4():
     def convert():
-        original_name = input("""What is the file name called?
+        original_name = input("""What is the file name called? Make sure to include file type.
+(ex: concert.WEBM)
+
 >""").replace(" ", "-")
         new_name = input("""
 What would you like to call the new file?
 (Type "!stay" if you don't want to change the name)
+Make sure to include file type.
+(ex: concert.MP4)
 
 >""").replace(" ", "-")
         if new_name.lower() == "!stay":
             new_name = original_name
+
         os.system(f"""ffmpeg -i "{original_name.replace("-", " ")}" -vcodec copy "{new_name.replace("-", " ")}" """)
 
     url = input("""
@@ -20,7 +25,11 @@ Insert the URL
 or 
 Type "convert" to convert a file to MP4 format
 >""")
-    if url.lower() != "convert":
+
+    if url.lower() == "convert":
+        convert()
+
+    else:
         try:
             os.system(f'youtube-dl {url}')
             video_format = input("""
@@ -32,9 +41,7 @@ Yes or No?""").lower()
             elif video_format.lower() == "no":
                 pass
             else:
-                print("invalid response")
+                print("Invalid response. Please try again. ")
+
         except:
             print("Invalid link. Please try again.")
-            
-    elif url.lower() == "convert":
-        convert()

@@ -1,14 +1,14 @@
 # Youtube_Download
 
 ## Download Videos and Music from YouTube. For Free!
-A youtube downloader. Uses the modules: "youtube-dl", "FFmpeg", "FFplay", and "FFprobe". These modules cannot be pip installed, they have to download externally.  I have included these modules on this GitHub page. Make sure these four modules are stored where modules are normally stored to be referenced by your specific project. 
+A youtube downloader. Uses the modules: "yt-dlp", "FFmpeg", "FFplay", and "FFprobe". These modules cannot be pip installed, they have to download externally.  I have included these modules on this GitHub page. Make sure these four modules are stored where modules are normally stored to be referenced by your specific project. 
 
 
 ## Necessities
 
 ```bash
 
-youtube-dl
+yt-dlp
 
 FFmpeg
 
@@ -27,7 +27,7 @@ import os
 link = input("""What is the YouTube link?
 >""")
 
-os.system(f'youtube-dl {link}')
+os.system(f'yt-dlp {link}')
 ```
 
 ## Download Music
@@ -39,7 +39,7 @@ import os
 link = input("""What is the YouTube link?
 >""")
 
-os.system(f'youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 {link}')
+os.system(f'yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 {link}')
 ```
 
 
